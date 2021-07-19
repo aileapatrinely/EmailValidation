@@ -10,10 +10,8 @@ session_start();
     <title>Success!</title>
 </head>
 <body>
-    <h1>You succeeded in doing the thing!</h1>
+    <h1>It is a valid email address!</h1>
     <p>Your Email: <?= $_SESSION['email'] ?></p>
-    <?php
-    //gonna need the form for logout here (then get rid of the php wrapper)
-    ?>
+    <!-- gonna need the form for logout here  -->
 </body>
 </html>

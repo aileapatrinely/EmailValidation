@@ -46,5 +46,13 @@ function run_mysql_query($query)
 
  	return $connection->insert_id;
 }
+//returns an escaped string. EG, the string "That's crazy!" will be returned as "That\'s crazy!"
+//also helps secure your database against SQL injection
+function escape_this_string($string)
+{
+	global $connection;
+
+	return $connection->real_escape_string($string);
+}
 
 ?>

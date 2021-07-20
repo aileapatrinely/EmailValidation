@@ -12,6 +12,7 @@ session_start();
 <body>
     <h1>It is a valid email address!</h1>
     <p>Your Email: <?= $_SESSION['email'] ?></p>
-    <!-- gonna need the form for logout here  -->
+    <!-- need to show the date  -->
+    <!-- maybe figure out a delete button/fx -->
 </body>
 </html>

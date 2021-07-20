@@ -5,5 +5,14 @@ require_once('new-connection.php');
 //Is there a benefit to using a boolean instead of an array of error messages?
 $_SESSION['error'] = false;
 
-//handling post from form
+//if statements checking post
+if(!empty($_POST) && isset($_POST['email'])){
+    //if statement checking filter_validate_email
+        //set session error
+        //header location
+        //die
+}else{
+    //email passed validations so we save it
+    //query statement for inserting into database
+}
 ?>

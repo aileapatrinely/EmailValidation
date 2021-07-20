@@ -1,5 +1,7 @@
 <?php
 session_start();
+//set timezone
+date_default_timezone_set('America/Chicago');
 ?>
 <!DOCTYPE html>
 <html lang="en">

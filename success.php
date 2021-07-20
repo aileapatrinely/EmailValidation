@@ -17,6 +17,6 @@ date_default_timezone_set('America/Chicago');
     <!-- need to show the date  -->
     <h3>Previously Entered Email Addresses:</h3>
     <!--some php with a for loop to show emails and date created--!>
-    <!-- maybe figure out a delete button/fx -->
+    <!-- maybe figure out a delete button/fx (it's a hidden form and a submit)-->
 </body>
 </html>

@@ -18,17 +18,34 @@ if(!empty($_POST) && isset($_POST['email'])){
     }else{
         //email passed validations so we save it
         //query statement for inserting into database
-        //move it to success and kill it
+        $query = "INSERT INTO emails (email, created_at, updated_at) VALUES ('{$_POST['email']}', NOW(), NOW())";
+        $last_row_id = run_mysql_query($query);
         if($last_row_id){
-            //something about last row id?
+            //hang onto the emails and move user to success.php
+            $_SESSION['email'] = $_POST['email'];
+            $query = "SELECT * FROM emails ORDER BY created_at DESC";
+            $emails = fetch_all($query);
+            $_SESSION['emails'] = $emails;
+            // move them to success and kill it
+            header('location: success.php');
+            die();
         }else{
         //save fails die
+        die('Error: Bad insert operation');
         }
     }
 }else if(!empty($_POST) && isset($_POST['action'])){
     if($_POST['action'] == 'delete'){
-        //this is our delete query
+        //this is our delete $query
+        $query = "DELETE FROM emails WHERE id = {$_POST['email_id']}";
+        run_mysql_query($query);
+        // successful delete get new list of emails
+        $query = "SELECT * FROM emails";
+        $emails = fetch_all($query);
+        $_SESSION ['emails'] = $emails;
         //move to success and kill it
+        header('location: success.php');
+        die();
     }else{
         //die
         die('delete form submitted but action is not equal to delete');

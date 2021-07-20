@@ -14,9 +14,17 @@ date_default_timezone_set('America/Chicago');
 <body>
     <h1>It is a valid email address!</h1>
     <p>Your Email: <?= $_SESSION['email'] ?></p>
-    <!-- need to show the date  -->
     <h3>Previously Entered Email Addresses:</h3>
-    <!--some php with a for loop to show emails and date created--!>
-    <!-- maybe figure out a delete button/fx (it's a hidden form and a submit)-->
+    <?php foreach($_SESSION['emails'] as $email){ ?>
+        <div>
+            <p><?=$email['email'] ?> <?=
+            date_format(date_create($email['created_at']), 'm/d/y h:i A') ?></p>
+            <form action="process.php" method="post">
+                <input type="hidden" name="email_id" value="<?= $email['id'] ?>">
+                <input type="hidden" name="action" value="delete">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    <?php } ?>
 </body>
 </html>
